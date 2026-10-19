@@ -1,0 +1,32 @@
+4. The difference between a variable's type and its declaration.
+
+    Consider this statement:
+
+            int     age;
+
+            age  = 20;
+
+                int     the data type,
+                age     the variable's name,
+                20      the initial value,
+                =       the initialization in this declaration
+
+    You can declare multiple variables of the same type:
+
+        int     a;
+        int     b;
+        int     c;
+
+        a = 1;
+        b = 2;
+        c = 3;
+
+    And you can declare an varible without initialising it:
+
+        int     x;
+
+    Uninitialised local variables does not automaticly contain ZERO.
+    Readng its indeterminate value can cause undefined behavior.
+
+
+

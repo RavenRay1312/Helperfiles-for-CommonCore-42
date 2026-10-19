@@ -1,0 +1,21 @@
+1. Basic Data types:
+  
+	int - integer
+
+    	Stores whole numbers without decimal points.
+
+	float - Decimal number
+
+	    stores floating point numbers with limited precision.
+
+	double - Higher-presicion decimal numers
+
+	    Usually provides more precision than a float
+
+	char - Character
+
+    	Stores a single character, represented by an integer value in C.
+
+	_Bool - Boolean value
+
+    	Stores either 0 (flase) or 1 (true)

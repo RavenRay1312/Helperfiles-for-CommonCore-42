@@ -1,0 +1,25 @@
+2. Type modifiers
+
+	short int
+
+	    Short integer type.
+
+	long int
+
+	    Long integer type.
+
+	long long int
+
+    	at least as wide as an long int, and at least 64 bits.
+
+	signed int / signed char
+
+	    Can represent negative and nonnegative values
+
+	unsigned int / unsinged char
+
+	    Represents only nonnegative values
+
+	long doubble
+
+	    Extend floating-point type, with implementation-dependent precision

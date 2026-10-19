@@ -1,0 +1,25 @@
+7. Pointers - Variables that store addresses
+
+    A pointer stores the adress of an object or function, pedending on its type.
+
+            int     age;
+
+            age = 20;
+
+            int     *ptr;
+
+            ptr = &age;
+
+    age     stores the integer 20,
+    &age    gives the adress of age,
+    ptr     stores the address,
+    *ptr    access the value at that adress
+
+		Examle:
+
+            printf("%d\n", *ptr); // 20
+
+            *ptr = 25;
+            printf("%d\n", age);  // 25
+
+    Pointers are essential for dynamic memory, arrays, strings, and working with functions that need to modify data.

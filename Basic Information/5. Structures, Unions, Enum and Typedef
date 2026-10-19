@@ -1,0 +1,60 @@
+5. Structures, unions, enumerations, and typedefs:
+
+    C lets you create your own types.
+
+        6.a. Structures (struct)
+
+            Groups related values that may have different types.
+
+                struct Student
+                {
+                    int     age;
+                    chat    grade;
+                    float   average;
+                }
+
+                struct Student  s;
+
+                s  = {20, 'A', 91.5f};
+
+            TRhe variable s contains an age, grade, and the average.
+
+        6.b. Unions (union)
+
+            Allows different members to share the same memory region.
+
+                union Data
+                {
+            	    int     number;
+                    float   decimal;
+                    char    letter;
+                }
+
+                union Data      d;
+
+                d.number = 10;
+
+        6.b. Enumerations (enum)
+
+            Defines Named integer constants.
+
+                enum Day
+                {
+                	MONDAY;
+                    TUESDAY;
+                    WEDNESDAY;
+                }
+
+                enum Day today = TUESDAY;
+
+            By default, the values are 0, 1, 2, respectively.
+
+        6.4. Type alias (typedef)
+
+            Gives an existing type another name.
+
+                typedef unsigned int uint;
+
+                uint age = 20;
+
+            typedef does not create a new fundamental type; it creates an alias.

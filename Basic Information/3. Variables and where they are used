@@ -1,0 +1,74 @@
+3. Variables by where they are used:
+
+	3.a. Local variables:
+
+		Declared inside a function or a block. They are accessible only within that scope.
+
+
+	        int main(voiod)
+	        {
+	            int     i;
+
+	            i = 1;
+	            printf("%d\n", i);
+	            return (0);
+	        }
+
+	3.b. Global variables:
+
+	    Declared outside all functions. They have file scope in the ordinary case and static storage duration.
+
+			int     i;
+
+	        i = 1;
+
+	        int main(void)
+	        {
+	            printf("%d\n", i);
+	            return(0);
+    	    }
+
+	3.c. Static variables:
+
+	    The static keyword gives a variable static storage duration.
+	    A local static variable retains its value between function calls.
+
+	    Unlike an ordinary local variable, count is 
+		initialisedonly once and keeps its value between calls.
+
+	        void counter(void)
+	            {
+	                static int      count;
+
+	                count = 0;
+	                count++;
+	                printf("%d\n", count);
+	            }
+
+	            int main(void)
+	            {
+	                counter(); // 1
+	                counter(); // 2
+	                counter(); // 3
+	                return(0);
+	            }
+
+	3.d. Automatic variables:
+
+    	Ordinary local variables are automatic by default. Their lifetime generally lasts until execution leaves their block.
+
+	        void example(void)
+	            {
+	                int     x;
+
+	                x = 12;                 Here x is an automatic variable.
+	            }
+
+	3.e. Constants and read-only variables:
+
+	    A const-qualified object cannot be modified through particular qualified access.
+
+	        const int       max_score;
+
+	        max score = 100;
+

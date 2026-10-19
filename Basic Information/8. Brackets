@@ -1,0 +1,160 @@
+8. Brackets:
+
+    In C Programming, there are 3 main types of brackets you need to understand:
+
+        () - Parentheses
+        {} - Curly braces
+        [] - Square brackets
+        <> - Angle brackets
+
+8.a Parentheses () - For conditions and functions
+
+    8.a.1 Condition in IF and WHILE:
+
+            int     age;
+
+            age = 20;
+            if (age >= 18)
+            {
+                printf("ADULT");
+            }
+
+        		the condition age >= 18 is inside parentheses.
+
+    8.a.2 Functions:
+
+            printf("Hello!");
+
+        		Parentheses contain the arguments passed by the function.
+
+    8.a.3 Calculations:
+
+        int result;
+
+        result = (5 + 3) * 2;
+
+    			Result: 16, Parentheses make 5 + 3 happen first.
+
+8.b Curly braces {} - For blocks of code
+
+    8.b.1 Inside if statements:
+
+        if (x > 10)
+        {
+            printf("Big");
+            printf(" number);
+        }
+
+    			The braces group both printf statements into one block.
+
+    8.b.2 Inside functions
+
+        int main (void)
+        {
+            int     x;
+
+            x = 10;
+            return (0);
+            }
+
+        		The funcion's body starts at { and ends at }.
+
+    8.b.3 Initializing arrays.
+
+        		int     numbers[3] = {10, 20, 30};
+
+    	The curly braces enclose the initial values of the array.
+
+8.c Square bracets [] - For arrays.
+
+    	Square brackets are used to declare and access their elements.
+
+            	int numbers[4] = {10, 20, 30, 40};
+
+        	Here, [4] means the array can hold up to four integers.
+
+    	To access individual elements:
+
+                printf("%d", numbers[0]); // 10
+                printf("%d", numbers[1]); // 20
+                printf("%d", numbers[2]); // 30
+                printf("%d", numbers[3]); // 40
+
+        Important: Array indexes start at 0, not 1.
+
+                10              20              30              40
+                index 0         index 1         index 2         index 3
+                numbers[0]      numbers[1]      numbers[2]      numbers[3]
+
+        You can also use square brackets with strings
+
+            char name[] = "Alex";
+            printf("%c", name[0]); // A
+
+8.d Angle brackets <> - For headers and comparison.
+
+    Angle brackets have two common uses.
+
+        8.d.1 Including standard library headers.
+
+                #include <stdio.h>
+                #include <unistd.h>
+
+            The angle brackets tell the processor to search for these headers
+            using its standard header-search rules.
+
+        8.d.2 Comparing values
+
+                if (a < b)
+                {
+                    printf("a is smaller")
+                }
+
+            Here < means less than. Similarly, > means greater than.
+
+8.e All brackets together in one progeram
+
+
+            int main (void)
+            {
+                int number[3] = {10, 20, 30};
+
+                if (numbers[0] < numbers[1])
+                {
+                    printf("First number is smaller\n");
+                }
+                return (0);
+            }
+
+
+What each bracket does:
+
+        <> in #include <stdio.h> - identifies the header to include.
+
+        () in main(void) - contains the function's parameter list.
+
+        {} after main(void) - contains the function body.
+
+        [] in numbers[3] - declares an array with three elements.
+
+        {} in {10, 20, 30} - initializes the array.
+
+        () in if (...) - contains the condition.
+
+        [] in numbers[0] and numbers[1] - accesses array elements.
+
+        {} after the if condition - contains the statements to execute when the condition is true.
+
+        () in printf(...) - contains the function arguments.
+
+
+Remember this simple rule:
+
+        () - Functions and conditions.
+
+        {} - Blocks of code and initializers.
+
+        [] - Arrays and element access.
+
+        <> - Header inclusion and comparison operators, depending on context.
+

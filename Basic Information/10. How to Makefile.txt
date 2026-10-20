@@ -1,0 +1,165 @@
+A Makefile is a text file that contains a set of rules used by the make utility to build and manage projects.
+The make utility reads the Makefile to determine which files need to be recompiled and then executes
+the necessary commands to compile and link them. Makefiles are particularly useful in C/C++ projects,
+but they can be used with any programming language or even for non-programming tasks like document generation.
+
+
+Basic Structure:
+
+	target: dependencies
+		command
+
+
+		target:		The file or action needs to be created or performed.
+		dependencies:	The files or actions that the target depends on.
+		command:	The shell command(s) that need to be executed to create the target.
+
+
+Simple example of a Makefile for a C Library project:
+
+	# Define the target executable
+
+		NAME = libft.a
+
+	# Define the compiler
+
+		CC = gcc
+
+	# Defining clean flags
+
+		RM = rm -f
+
+	# Defining Compiler flags
+
+		CFLAGS = -Wall -Wextra -Werror -g3
+
+	# Defining Archiver flags
+
+		AR = ar rcs
+
+
+
+	# Define the source files
+
+		SRCS = main.c utils.c
+
+	# Define the object files
+
+		OBJS = $(SRCS:.c=.o)
+
+
+
+	# Rule to build the target executable
+
+		$(NAME): $(OBJS)
+			$(CC) -o $(NAME) $(OBJS)
+
+	# Rule to build object files from source files
+
+		%.o: %.c
+			$(CC) $(CFLAGS) -c $< -o $@
+
+	# Rule to remove the Objects
+
+		clean:
+			$(RM) $(OBJS)
+
+	# Rule to clean Everything
+
+		fclean:
+			$(RM) $(NAME)
+
+	# Rule to remove everything and make a new library
+
+		re: fclean all
+
+	Varibles:
+
+		The Makefile starts by defining varibles like CC, Target, SRC, and OBJC.
+		These varibles make the Makefile more readable and easier to maintain.
+
+	Targets and Dependencies:
+
+		The $(NAME) rule specifies that the executable myprogram 
+		depends on the files main.o and utils.o.
+		If any of these oblect files are out of date, make will recompile them.
+
+	Pattern Rules:
+
+		The %.o: %.c rule is a pattern rule that tells
+		make how to compile any .c file into a .o file.
+		The $< and $@ are automatic variables that 
+		represent the source file and the target file, respectevely.
+
+	Phony Targets:
+
+		The clean target is a phony target, meaningit doesn't represent a file.
+		Instead, it's used to perform an action-in this case, 
+		cleaning up the buildby removing the object files and the executable.
+
+
+Running the Makefile:
+
+	To run the Makefile, navigate to the directory 
+	that contains the Makefile and run the following commands:
+
+		To build the project:	make
+		Clean the build:	make clean
+
+What does AR=rcs mean:
+
+	AR - The archiver program that creates and modifies static libraries.
+
+	r - Inserts object files into the archive, replacing files with the same name if they already exist.
+
+	c - Creates the archive if it doesn't already exist.
+
+	s - Creates or updates the archive index, which helps the linker find functions in the library.
+
+Additional Information:
+
+
+For SRCS and OBJS it is possible to use multiple commands:
+
+	Example 1: 
+
+		SRC =	filename \
+				filename2, filename3 \
+				filename4, filename5, filename6 \
+				etc...
+
+		The '\' is used for linebraks,
+
+		SRCS = $(addsufix .c, $(SRC))
+		OBJS = $(addsufix .o, &(SRC))
+
+	With the $(addsufix) the Makefile will
+	treat the SRC files like .c and .o files respectevly.
+
+
+\\ the following is not allowed in 42 CommonCore
+
+For SRCS and OBJS you can also use the wildcard function:
+
+	One use of the wildcard function is to get a list
+	of all the C source files in a directory:
+
+		SRC = $(wildcard *.c)
+
+	We can change the list of C source files into a list of object files 
+	by replacing the '.c' suffix with '.o' in the result, like this:
+
+
+		$(patsubst %.c, %.o, $(wildcard *.c))
+
+	Thus, a makefile to compile all C source files in the directory and then link them together
+	could be written as follows:
+
+		objects := $(patsubst %.c,%.o,$(wildcard *.c))
+
+		foo : $(objects)
+        	cc -o foo $(objects)
+
+	This takes advantage of the implicit rule for compiling C programs,
+	so there is no need to write explicit rules for compiling the files.
+
